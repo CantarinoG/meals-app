@@ -6,10 +6,26 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final ThemeData tema = ThemeData();
+
     return MaterialApp(
       title: 'DeliMeals',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: tema.copyWith(
+        colorScheme: tema.colorScheme.copyWith(
+            primary: Colors.pink,
+            secondary: Colors.amber,
+            background: Color.fromRGBO(255, 254, 229, 1)),
+        textTheme: tema.textTheme.copyWith(
+          bodyLarge: TextStyle(
+            fontFamily: 'Raleway',
+            fontSize: 18,
+          ),
+          titleLarge: TextStyle(
+            fontSize: 20,
+            color: Colors.black,
+            fontFamily: 'RobotoCondensed',
+          ),
+        ),
       ),
       home: CategoriesScreen(),
     );
